@@ -1,16 +1,28 @@
-# Rate Limiter Project
+# Rate Limiter
+This is a rate limiter library that allows you to limit the number of requests a user can make to a specific API within a certain time window.
 
-## Overview
+## Getting Started
+To use this library, you will first need to create a RateLimiter object by passing in a list of ApiRateLimit objects. Each ApiRateLimit object represents the rate limit for a specific API, and contains the following fields:
 
-This program is a rate limiter implementation that allows for controlling the rate at which a user can access a specific API. The rate limiter is implemented using a combination of a ConcurrentHashMap and a List of ApiRateLimit objects.
+* api: the name of the API
+* limit: the maximum number of requests allowed within the time window
+* timeWindow: the time window in milliseconds
 
-The ConcurrentHashMap is used to store the request rate for each user and API combination, while the List of ApiRateLimit objects is used to store the rate limit and time window for each API.
+Once you have created the RateLimiter object, you can use the checkRequest method to check if a request is allowed for a given user and API. The method takes two arguments:
 
-The RateLimiter class is the main class responsible for enforcing the rate limit. It has methods to check if a request is allowed, and to retrieve the current request rate for a user and API.
+* user: the user making the request
+* api: the API the request is being made to
+It returns true if the request is allowed and false if the request is not allowed.
 
-## Usage
-To use the rate limiter, you will need to create an instance of the RateLimiter class and pass in a List of ApiRateLimit objects. Each ApiRateLimit object represents a specific API and contains the rate limit and time window for that API.
+## Testing
+The library includes a set of test cases to ensure the correct functionality of the rate limiter. You can run these tests by executing the TestRateLimiter class. The test cases include:
 
-Once you have an instance of the RateLimiter, you can use the checkRequest method to check if a request from a specific user to a specific API is allowed. This method returns a boolean value indicating if the request is allowed or not.
+* testCheckRequestWithinRateLimit: This test case checks that a user can make the maximum number of requests allowed within the time window, and that subsequent requests are denied.
+* testCheckRequestOverRateLimit: This test case is designed to check if the rate limiter correctly prevents a user from making more requests than the specified rate limit.
+*testCheckRequestExceedingRateLimit: This test case is designed to check if the rate limiter correctly prevents a user from making more requests than the specified rate limit, even if the requests are spread out over a longer period of time.
 
-You can also use the getRate method to retrieve the current request rate for a specific user and API.
+## Built With
+* Java
+
+## Authors
+* Akshay Jacob
