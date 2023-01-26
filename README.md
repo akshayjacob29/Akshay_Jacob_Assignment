@@ -14,6 +14,12 @@ Once you have created the RateLimiter object, you can use the checkRequest metho
 * api: the API the request is being made to
 It returns true if the request is allowed and false if the request is not allowed.
 
+## Dependencies
+* junit 4.13.1 (for running the test cases)
+* fasterxml.jackson.core - 2.11.3
+* fasterxml.jackson.core.annotations - 2.11.3
+* jackson-databind - 2.11.3 (since the api,limit and timeWindow are set in a JSON file named "rate_limit_config.json")
+
 ## Testing
 The library includes a set of test cases to ensure the correct functionality of the rate limiter. You can run these tests by executing the TestRateLimiter class. The test cases include:
 
