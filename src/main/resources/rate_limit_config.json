@@ -1,0 +1,15 @@
+[
+  {
+    "api": "/api/prod"
+  },
+  {
+    "api": "/api/users",
+    "limit": 10,
+    "timeWindow": 2000
+  },
+  {
+    "api": "/api/orders",
+    "limit": 15,
+    "timeWindow": 3000
+  }
+]
